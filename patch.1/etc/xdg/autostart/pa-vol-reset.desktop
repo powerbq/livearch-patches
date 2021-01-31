@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Reset volume
+Exec=pa-vol.sh reset
+Type=Application
+OnlyShowIn=MATE;
+X-MATE-Autostart-Delay=10

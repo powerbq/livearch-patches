@@ -1,0 +1,54 @@
+[Default Applications]
+
+# FIREFOX
+text/html=firefox.desktop
+x-scheme-handler/about=firefox.desktop
+x-scheme-handler/https=firefox.desktop
+x-scheme-handler/http=firefox.desktop
+
+# THUNDERBIRD
+application/x-extension-eml=thunderbird.desktop
+message/rfc822=thunderbird.desktop
+x-scheme-handler/mailto=thunderbird.desktop
+
+# EOM
+image/bmp=eom.desktop
+image/gif=eom.desktop
+image/jpeg=eom.desktop
+image/png=eom.desktop
+image/tiff=eom.desktop
+
+# LIBREOFFICE
+application/msword=libreoffice-writer.desktop
+application/rtf=libreoffice-writer.desktop
+application/vnd.oasis.opendocument.text=libreoffice-writer.desktop
+application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice-writer.desktop
+application/vnd.ms-excel=libreoffice-calc.desktop
+application/vnd.oasis.opendocument.spreadsheet=libreoffice-calc.desktop
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet=libreoffice-calc.desktop
+
+# TEXT AND PDF
+text/plain=geany.desktop
+application/pdf=atril.desktop
+
+# AUDACIOUS
+audio/mpeg=audacious.desktop
+audio/x-mpegurl=audacious.desktop
+audio/x-scpls=audacious.desktop
+audio/x-vorbis+ogg=audacious.desktop
+audio/x-wav=audacious.desktop
+
+# VLC
+video/mp2t=vlc.desktop
+video/mp4=vlc.desktop
+video/mpeg=vlc.desktop
+video/msvideo=vlc.desktop
+video/quicktime=vlc.desktop
+video/webm=vlc.desktop
+video/x-avi=vlc.desktop
+video/x-flv=vlc.desktop
+video/x-matroska=vlc.desktop
+video/x-mpeg=vlc.desktop
+video/x-ogm+ogg=vlc.desktop
+
+# NEW

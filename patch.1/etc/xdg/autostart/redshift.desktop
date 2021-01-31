@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Redshift
+Exec=redshift-gtk
+Type=Application
+OnlyShowIn=MATE;
+X-MATE-Autostart-Delay=10

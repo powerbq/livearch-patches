@@ -1,0 +1,34 @@
+#!/bin/bash
+
+# Монтируем необходимые фиктивные файловые системы
+mount -t proc     none /proc
+mount -t sysfs    none /sys
+mount -t devtmpfs none /dev
+ln -sf /proc/mounts /etc/mtab
+
+# Сохраняем окружение
+printenv | grep -P '^LIVE_' | sed 's/^/export /g' > /etc/profile.d/livearch.sh
+
+# Проверяем, не был ли запущен этот скрипт ранее
+DONEFILE=/var/.livearch
+test -f "${DONEFILE}" && exit 0
+
+# Применяем патчи
+/usr/local/sbin/live-apply-patches.sh
+
+# Читаем конфигурацию
+source /usr/local/etc/livearch.d/config
+
+# Выполняем скрипты запуска
+find /usr/local/etc/preboot.d -maxdepth 1 -type f | sort | xargs -rn1 bash
+
+# Помечаем как "готово"
+touch ${DONEFILE}
+
+# Отмонтируем фиктивные файловые системы
+rm /etc/mtab
+umount /dev
+umount /sys
+umount /proc
+
+exit 0

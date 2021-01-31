@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# Если задана загрузка без графики, выходим
+cat /proc/cmdline | xargs -n1 | grep -P '^headless$' > /dev/null && exit 0
+
+# Активация LightDM
+systemctl enable lightdm
+
+# Настройка LightDM
+cat > /etc/lightdm/lightdm.conf << EOF
+[Seat:*]
+session-wrapper=/etc/lightdm/Xsession
+user-session = mate
+EOF
+
+# Выходим, если нет автовхода
+test "$AUTOLOGIN" = yes || exit 0
+
+# Настраиваем автовход
+cat >> /etc/lightdm/lightdm.conf << EOF
+pam-service = lightdm
+pam-autologin-service = lightdm-autologin
+autologin-user = $USERNAME
+autologin-user-timeout = 0
+EOF
+
+# Группа для автовхода
+groupadd --system autologin
+usermod -a -G autologin $USERNAME
+
+exit 0

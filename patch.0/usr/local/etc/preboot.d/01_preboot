@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Базовая настройка
+live-base-configure.sh
+live-sudo-configure.sh
+live-fstab-configure.sh
+live-ssh-configure.sh
+
+# Настраиваем сеть
+live-network-configure.sh
+live-wifi-configure.sh
+
+# Устанавливаем дополнительные пакеты
+live-packages-advanced.sh
+
+# Создание пользователя
+live-create-user.sh ${USERNAME} ${USERID} adm,wheel,docker,libvirt
+
+# Настройка пароля пользователя
+echo "${USERNAME}:${PASSWORD}" | chpasswd
+test -n "${HASHED_PASSWORD}" && echo "${USERNAME}:${HASHED_PASSWORD}" | chpasswd -e
+
+# Настройка пароля ROOT
+echo "root:${PASSWORD}" | chpasswd
+test -n "${HASHED_PASSWORD}" && echo "root:${HASHED_PASSWORD}" | chpasswd -e
+
+exit 0

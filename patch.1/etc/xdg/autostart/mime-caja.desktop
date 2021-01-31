@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=Mime Caja
+Exec=xdg-mime default caja-folder-handler.desktop inode/directory
+Type=Application
+OnlyShowIn=MATE;

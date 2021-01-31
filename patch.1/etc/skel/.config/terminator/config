@@ -1,0 +1,9 @@
+[global_config]
+  window_state = maximise
+[profiles]
+  [[default]]
+    foreground_color = "#ffffff"
+    background_color = "#300a24"
+    scroll_on_output = False
+    scrollback_infinite = False
+    copy_on_selection = False

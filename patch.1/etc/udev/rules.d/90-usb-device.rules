@@ -1,0 +1,5 @@
+SUBSYSTEM!="usb", GOTO="usb_device_section_end"
+
+RUN+="/usr/local/sbin/udev-usb.sh %E{ACTION} %N"
+
+LABEL="usb_device_section_end"

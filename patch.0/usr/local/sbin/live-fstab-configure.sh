@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Создаем точки монтирования
+cat /etc/fstab | grep -Pv '^(#|$)' | awk '{print $2}' | grep -P '^/.+' | xargs -n1 -i sh -c 'mkdir -p {}'
+
+exit 0

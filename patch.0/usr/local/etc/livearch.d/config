@@ -1,0 +1,25 @@
+#!/bin/bash
+
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/bin
+export HOME=/root
+export LC_ALL=C
+
+# DEFAULT
+export TIMEZONE=Europe/Kiev
+export HOSTNAME=livearch
+export USERNAME=live
+export PASSWORD=evil
+export HASHED_PASSWORD=
+export AUTOLOGIN=yes
+export USERID=3219
+
+# NETWORK
+export NETWORK_SYSTEMD=no
+
+# CUSOMIZATION
+export LIVEARCH=/usr/local/etc/livearch.d
+export OVERRIDE=${LIVEARCH}/config.override
+
+if test -f ${OVERRIDE}; then
+	source ${OVERRIDE}
+fi

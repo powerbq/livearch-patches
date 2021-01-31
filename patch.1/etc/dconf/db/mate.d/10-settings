@@ -1,0 +1,83 @@
+[org/mate/desktop/media-handling]
+automount=false
+automount-open=false
+autorun-never=true
+
+[org/mate/desktop/peripherals/touchpad]
+scroll-method=2
+disable-while-typing=true
+tap-to-click=true
+
+[org/mate/power-manager]
+action-critical-battery='suspend'
+button-lid-ac='nothing'
+button-power='interactive'
+button-suspend='suspend'
+sleep-computer-ac=0
+sleep-computer-battery=600
+sleep-display-ac=600
+
+[org/mate/desktop/interface]
+font-name='Ubuntu 11'
+document-font-name='Ubuntu 11'
+monospace-font-name='Ubuntu Mono 13'
+menubar-accel=''
+
+[org/mate/caja/desktop]
+font='Ubuntu 11'
+
+[org/mate/caja/preferences]
+date-format='iso'
+use-iec-units=true
+
+[org/mate/marco/global-keybindings]
+run-command-terminal='<Primary><Alt>t'
+
+[org/mate/panel/general]
+default-layout='ubuntu'
+
+[org/mate/marco/general]
+titlebar-font='Ubuntu Medium 11'
+compositing-manager=false
+side-by-side-tiling=true
+button-layout='close,minimize,maximize:'
+theme='Ambiant-MATE'
+
+[org/mate/desktop/interface]
+gtk-theme='Ambiant-MATE'
+icon-theme='Ambiant-MATE'
+
+[org/mate/desktop/peripherals/mouse]
+cursor-theme='mate'
+
+[org/mate/desktop/peripherals/keyboard/kbd]
+options=['grp_led\tgrp_led:caps', 'grp\tgrp:shift_caps_switch']
+layouts=['us', 'ru', 'ua']
+
+[org/mate/desktop/peripherals/keyboard/general]
+default-group=0
+
+[org/mate/desktop/applications/terminal]
+exec='terminator'
+
+[org/mate/notification-daemon]
+theme='slider'
+
+[org/mate/desktop/background]
+picture-filename='/usr/share/backgrounds/cosmos/earth-horizon.jpg'
+
+[org/mate/screensaver]
+lock-enabled=false
+idle-activation-enabled=false
+
+[org/mate/settings-daemon/plugins/media-keys]
+screensaver='<Mod4>l'
+
+[org/mate/panel/objects/dockapplet/prefs]
+bg-type=1
+indicator-type=8
+theme=3
+
+[org/mate/panel/toplevels/left/background]
+type='color'
+color='rgba(0,0,0,0.9)'

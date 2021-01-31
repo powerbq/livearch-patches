@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Настройка DCONF
+dconf update
+
+# Обновляем кеш иконок
+rm -f /usr/share/icons/hicolor/*.cache
+ls -d /usr/share/icons/*/ | /usr/share/libalpm/scripts/gtk-update-icon-cache
+
+# Настройка сервисов
+sed -i 's/^#CPU_SCALING_GOVERNOR_ON_AC=.*/CPU_SCALING_GOVERNOR_ON_AC=performance/' /etc/tlp.conf
+sed -i 's/^#CPU_SCALING_GOVERNOR_ON_BAT=.*/CPU_SCALING_GOVERNOR_ON_BAT=powersave/' /etc/tlp.conf
+
+# Активация сервисов
+systemctl enable tlp acpid
+
+# Отключение сервисов RFKILL (для корректной работы TLP)
+systemctl mask systemd-rfkill.service systemd-rfkill.socket
+
+exit 0

@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Caffeine
+Exec=caffeine.py
+Type=Application
+OnlyShowIn=MATE;
+X-MATE-Autostart-Delay=10
