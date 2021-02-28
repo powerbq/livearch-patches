@@ -10,7 +10,7 @@ fi
 test -d ${LIVE_MOUNT}/${LIVE_PREFIX} || exit 0
 
 # Применяем патчи в порядке сортировки (если есть)
-find ${LIVE_MOUNT}/${LIVE_PREFIX} -type f -name 'patch.*.tar.gz' | sort | xargs -n1 -r -i tar -zxpf {} -C /
-find ${LIVE_MOUNT}/${LIVE_PREFIX} -type d -name 'patch.*'        | sort | xargs -n1 -r -i cp -a --reflink=auto --no-preserve=ownership {}/. /
+find ${LIVE_MOUNT}/${LIVE_PREFIX} -type f -name 'patch.*.tar.gz' | sort | busybox xargs -rn1 tar -zxp -C / -f
+find ${LIVE_MOUNT}/${LIVE_PREFIX} -type d -name 'patch.*'        | sort | busybox xargs -rn1 -I % /usr/bin/cp -a --reflink=auto --no-preserve=ownership %/. /
 
 exit 0

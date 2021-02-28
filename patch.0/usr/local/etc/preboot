@@ -20,7 +20,7 @@ test -f "${DONEFILE}" && exit 0
 source /usr/local/etc/livearch.d/config
 
 # Выполняем скрипты запуска
-find /usr/local/etc/preboot.d -maxdepth 1 -type f | sort | xargs -rn1 bash
+find /usr/local/etc/preboot.d -maxdepth 1 -type f | sort | busybox xargs -rn1 bash
 
 # Помечаем как "готово"
 touch ${DONEFILE}

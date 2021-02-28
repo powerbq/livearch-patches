@@ -50,7 +50,7 @@ function mutesinks() {
 
 	notify sinks $SINKSTATE
 
-	sinks   | xargs -rn1 --replace=? pactl set-sink-mute     ? $SINKSTATE
+	sinks   | busybox xargs -rn1 -I ? pactl set-sink-mute     ? $SINKSTATE
 }
 
 function mutesources() {
@@ -60,21 +60,21 @@ function mutesources() {
 
 	notify sources $SOURCESTATE
 
-	sources | xargs -rn1 --replace=? pactl set-source-mute   ? $SOURCESTATE
+	sources | busybox xargs -rn1 -I ? pactl set-source-mute   ? $SOURCESTATE
 }
 
 function resetsinks() {
 	notify sinks reset
 
-	sinks   | xargs -rn1 --replace=? pactl set-sink-mute     ? 0
-	sinks   | xargs -rn1 --replace=? pactl set-sink-volume   ? 90%
+	sinks   | busybox xargs -rn1 -I ? pactl set-sink-mute     ? 0
+	sinks   | busybox xargs -rn1 -I ? pactl set-sink-volume   ? 90%
 }
 
 function resetsources() {
 	notify sources reset
 
-	sources | xargs -rn1 --replace=? pactl set-source-mute   ? 0
-	sources | xargs -rn1 --replace=? pactl set-source-volume ? 90%
+	sources | busybox xargs -rn1 -I ? pactl set-source-mute   ? 0
+	sources | busybox xargs -rn1 -I ? pactl set-source-volume ? 90%
 }
 
 case "$1" in

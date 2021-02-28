@@ -16,7 +16,7 @@ function requested_groups() {
 }
 
 function present_groups() {
-	requested_groups | tr ',' '\n' | xargs -rn1 -I % grep -o '^%:' /etc/group | tr -d '\n' | tr ':' ',' | sed 's/.$//'
+	requested_groups | tr ',' '\n' | busybox xargs -rn1 -I % grep -o '^%:' /etc/group | tr -d '\n' | tr ':' ',' | sed 's/.$//'
 }
 
 # Группа для пользователя
